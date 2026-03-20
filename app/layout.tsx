@@ -24,6 +24,9 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "Abdur Rahman | GenAI Engineer",
   description: "Translating frontier AI into sophisticated software systems.",
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({

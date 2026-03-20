@@ -30,29 +30,29 @@ export default function ProjectHero({ project }: { project: ProjectData }) {
 
       <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
         <h1 className="flex flex-col gap-2 overflow-hidden">
-          <span className="hero-title-part font-serif italic text-6xl md:text-[7rem] lg:text-[9rem] text-[var(--accent)] leading-[0.85] tracking-tight">
+          <span className="hero-title-part font-serif italic text-4xl sm:text-5xl md:text-[7rem] lg:text-[9rem] text-[var(--accent)] leading-[0.95] md:leading-[0.85] tracking-tight">
             {project.title}
           </span>
         </h1>
 
         <div className="hero-line w-full h-[2px] bg-[var(--foreground)]" />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-4">
-          <div className="spec-grid-item flex flex-col gap-2">
-            <div className="font-mono text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Role</div>
-            <div className="font-sans font-bold text-lg md:text-xl text-[var(--foreground)] leading-tight">{project.meta.role}</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-4">
+          <div className="spec-grid-item flex flex-col gap-1 md:gap-2">
+            <div className="font-mono text-[9px] md:text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Role</div>
+            <div className="font-sans font-bold text-sm sm:text-base md:text-xl text-[var(--foreground)] leading-tight">{project.meta.role}</div>
           </div>
-          <div className="spec-grid-item flex flex-col gap-2">
-            <div className="font-mono text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Timeline</div>
-            <div className="font-sans font-bold text-lg md:text-xl text-[var(--foreground)] leading-tight">{project.meta.timeline}</div>
+          <div className="spec-grid-item flex flex-col gap-1 md:gap-2">
+            <div className="font-mono text-[9px] md:text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Timeline</div>
+            <div className="font-sans font-bold text-sm sm:text-base md:text-xl text-[var(--foreground)] leading-tight">{project.meta.timeline}</div>
           </div>
-          <div className="spec-grid-item flex flex-col gap-2">
-            <div className="font-mono text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Context</div>
-            <div className="font-sans font-bold text-lg md:text-xl text-[var(--foreground)] leading-tight">{project.meta.context}</div>
+          <div className="spec-grid-item flex flex-col gap-1 md:gap-2">
+            <div className="font-mono text-[9px] md:text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Context</div>
+            <div className="font-sans font-bold text-sm sm:text-base md:text-xl text-[var(--foreground)] leading-tight">{project.meta.context}</div>
           </div>
-          <div className="spec-grid-item flex flex-col gap-2">
-            <div className="font-mono text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Status</div>
-            <div className="font-sans font-bold text-lg md:text-xl text-[var(--foreground)] leading-tight text-[var(--accent)]">{project.meta.status}</div>
+          <div className="spec-grid-item flex flex-col gap-1 md:gap-2">
+            <div className="font-mono text-[9px] md:text-[10px] tracking-widest text-[var(--foreground)]/50 uppercase">Status</div>
+            <div className="font-sans font-bold text-sm sm:text-base md:text-xl text-[var(--foreground)] leading-tight text-[var(--accent)]">{project.meta.status}</div>
           </div>
         </div>
       </div>

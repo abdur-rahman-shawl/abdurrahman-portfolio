@@ -119,8 +119,8 @@ export default function Protocol() {
           }}
         >
           {/* Content Half */}
-          <div className="w-full md:w-[55%] p-10 md:p-32 flex flex-col justify-center h-[50vh] md:h-full">
-            <div className="font-mono text-sm tracking-widest text-[var(--accent)] mb-4 md:mb-6 uppercase font-bold">
+          <div className="w-full md:w-[55%] p-6 sm:p-10 md:p-32 flex flex-col justify-center h-[50vh] md:h-full">
+            <div className="font-mono text-xs sm:text-sm tracking-widest text-[var(--accent)] mb-3 md:mb-6 uppercase font-bold">
               Project _ 0{idx + 1}
             </div>
             <h3 className="font-sans font-bold text-4xl sm:text-5xl md:text-7xl uppercase tracking-tighter text-[var(--foreground)] leading-[0.9] mb-6 md:mb-8 max-w-2xl">

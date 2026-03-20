@@ -40,17 +40,19 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 md:pb-32 flex flex-col items-start gap-6">
-        <h1 className="flex flex-col">
-          <span className="hero-text-part font-sans font-bold text-3xl md:text-5xl lg:text-5xl text-[var(--primary)] tracking-tight uppercase max-w-4xl leading-tight">
-            Abdur Rahman — Translating frontier AI into
-          </span>
-          <span className="hero-text-part font-serif italic text-6xl md:text-[7rem] lg:text-[8rem] text-[var(--accent)] leading-[0.85] mt-2 pb-2">
-            Sophisticated software systems.
+        <h1 className="hero-text-part font-serif italic text-5xl sm:text-6xl md:text-[9rem] lg:text-[12rem] leading-[0.9] tracking-tight text-[var(--background)]">
+          Software Engineer  
+          <br />
+          <span className="font-sans not-italic text-5xl sm:text-6xl md:text-[7rem] lg:text-[10rem] text-[var(--accent)] tracking-tighter uppercase font-bold block mt-2 md:mt-0">
+            GenAI
           </span>
         </h1>
+        <p className="hero-text-part font-mono text-[10px] sm:text-xs md:text-sm lg:text-base tracking-[0.2em] md:tracking-[0.4em] max-w-sm md:max-w-2xl text-[var(--background)]/80 uppercase mt-4">
+          Translating frontier AI into sophisticated software systems.
+        </p>
         
-        <div className="hero-cta mt-8 flex px-2">
-          <div className="font-mono text-[var(--primary)]/70 text-sm flex items-center gap-4 border border-[var(--primary)]/20 px-6 py-3 rounded-full">
+        <div className="hero-cta mt-8 flex px-2 flex-wrap gap-4">
+          <div className="hero-text-part font-mono text-[var(--background)]/80 text-[10px] md:text-sm flex items-center gap-4 border border-[var(--background)]/20 px-6 py-3 rounded-full bg-[var(--foreground)]/50 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
             System Operational // GenAI Protocol Active
           </div>

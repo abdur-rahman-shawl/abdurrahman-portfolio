@@ -40,14 +40,17 @@ export default function ProjectImpact({ project }: { project: ProjectData }) {
       <div className="max-w-7xl mx-auto px-6 mb-32">
         <div className="font-mono text-xs tracking-widest text-[var(--accent)] mb-12 uppercase font-bold">Metrics & Output</div>
         <div className="impact-grid grid grid-cols-1 md:grid-cols-3 gap-16">
-          {project.impactMetrics.map((metric, idx) => (
-            <div key={idx} className="impact-item flex flex-col gap-2">
-               <div className="font-serif italic text-7xl md:text-8xl text-[var(--accent)] tracking-tighter leading-none hover:text-[var(--foreground)] transition-colors">
-                 {metric.value}
-               </div>
-               <div className="font-sans font-bold text-xl uppercase tracking-tight text-[var(--foreground)] mt-4">
-                 {metric.label}
-               </div>
+          {project.impactMetrics.map((metric, index) => (
+            <div key={index} className="impact-item flex flex-col border-t border-[var(--foreground)]/10 pt-8">
+              <div className="font-mono text-[10px] md:text-sm tracking-widest text-[var(--accent)] font-bold uppercase mb-2 md:mb-4">
+                Diagnostic Output //
+              </div>
+              <div className="font-serif italic font-bold text-[4.5rem] sm:text-[6rem] md:text-[8rem] tracking-tighter text-[var(--accent)] leading-none hover:text-[var(--foreground)] transition-colors">
+                {metric.value}
+              </div>
+              <div className="font-sans font-bold text-sm sm:text-base md:text-xl uppercase tracking-tight text-[var(--foreground)] mt-2 md:mt-4">
+                {metric.label}
+              </div>
             </div>
           ))}
         </div>
