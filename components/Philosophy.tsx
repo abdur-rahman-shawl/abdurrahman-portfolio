@@ -52,10 +52,10 @@ export default function Philosophy() {
 
         <h2 className="flex flex-col gap-4 md:gap-6">
           <span className="manifesto-line font-sans font-bold text-4xl md:text-7xl uppercase tracking-tighter leading-none">
-            We don't just prompt models.
+            I don't just prompt models.
           </span>
           <span className="manifesto-line font-serif italic text-5xl md:text-[6rem] lg:text-[7rem] text-[var(--primary)] leading-[0.85]">
-            We architect cognitive engines.
+            I architect cognitive engines.
           </span>
         </h2>
         
@@ -63,10 +63,10 @@ export default function Philosophy() {
 
         <h2 className="flex flex-col gap-4 md:gap-6 items-end text-right">
            <span className="manifesto-line font-sans font-bold text-4xl md:text-7xl uppercase tracking-tighter leading-none text-[var(--accent)]">
-            Stop building toys.
+            Moving beyond prototypes.
            </span>
            <span className="manifesto-line font-serif italic text-5xl md:text-[6rem] lg:text-[7rem] text-[var(--primary)] leading-[0.85]">
-             Deploy resilient systems.
+             Deploying resilient systems.
            </span>
         </h2>
       </div>

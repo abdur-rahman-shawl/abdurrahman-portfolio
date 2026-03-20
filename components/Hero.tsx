@@ -32,7 +32,7 @@ export default function Hero() {
       {/* Background image & gradient overlay */}
       <div className="absolute inset-0">
         <img 
-          src="/hero_bg.png" 
+          src="https://images.pexels.com/photos/4328661/pexels-photo-4328661.jpeg" 
           alt="Brutalist Concrete Background" 
           className="w-full h-full object-cover opacity-50 grayscale"
         />

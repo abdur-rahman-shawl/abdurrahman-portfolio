@@ -124,6 +124,7 @@ export default function ContactFooter() {
            <div className="flex flex-col gap-4">
               <div className="text-[var(--accent)] font-bold mb-2 tracking-widest uppercase text-xs">Directory</div>
               <Link href="/#features" onClick={(e) => handleScroll(e, "#features")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Features</Link>
+              <Link href="/#specs" onClick={(e) => handleScroll(e, "#specs")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Profile</Link>
               <Link href="/#philosophy" onClick={(e) => handleScroll(e, "#philosophy")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Philosophy</Link>
               <Link href="/#protocol" onClick={(e) => handleScroll(e, "#protocol")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Projects</Link>
            </div>

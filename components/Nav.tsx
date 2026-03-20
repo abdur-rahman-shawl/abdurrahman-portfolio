@@ -70,7 +70,7 @@ export default function Nav() {
       </Link>
       <div className="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest">
         <Link href="/#features" onClick={(e) => handleScroll(e, "#features")} className="lift-hover">Features</Link>
-        <Link href="/#philosophy" onClick={(e) => handleScroll(e, "#philosophy")} className="lift-hover">Philosophy</Link>
+        <Link href="/#specs" onClick={(e) => handleScroll(e, "#specs")} className="lift-hover">Profile</Link>
         <Link href="/#protocol" onClick={(e) => handleScroll(e, "#protocol")} className="lift-hover">Protocol</Link>
       </div>
       <Link 
