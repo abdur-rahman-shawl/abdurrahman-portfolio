@@ -4,6 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import { projectsData } from "../lib/projects";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,39 +13,7 @@ if (typeof window !== "undefined") {
 
 export default function Protocol() {
   const container = useRef<HTMLElement>(null);
-  
-  const projects = [
-    {
-      title: "Semantic Job Resolver",
-      desc: "Engineered a high-performance NLP categorization engine resolving 100M+ job listings using custom BIO NER tagging and SOLR vector embeddings.",
-      animType: "rotate"
-    },
-    {
-      title: "Lucy AI Assistant",
-      desc: "Conversational AI agent guiding users through career search. Orchestrated as a Flask microservice with GPT-4 & SpaCy. Live in 4 countries with 10k+ users.",
-      animType: "wave"
-    },
-    {
-      title: "Autonomous Agents",
-      desc: "LangChain and OpenAI Function Calling system capable of planning its own task execution. Translates natural language to SQL securely.",
-      animType: "scan"
-    },
-    {
-      title: "AI SEO Architect",
-      desc: "Autonomous app generating SEO-optimized content based on search trends. Integrated Google Rich Snippets and hyperlinked 5M+ internal URLs.",
-      animType: "rotate"
-    },
-    {
-      title: "Global Resume Parser",
-      desc: "RAG-powered high-fidelity data extraction from 2M+ resumes across 40+ countries and 15 languages, standardizing downstream JSON matching.",
-      animType: "scan"
-    },
-    {
-      title: "WhatJobs Native PWA",
-      desc: "Architected a Progressive Web App using Lit and Flask, packed for iOS/Android with custom Service Workers and FCM push notifications.",
-      animType: "wave"
-    }
-  ];
+  const projects = projectsData;
 
   useGSAP(() => {
     const cards = gsap.utils.toArray<HTMLElement>(".project-card");
@@ -124,9 +94,15 @@ export default function Protocol() {
             <h3 className="font-sans font-bold text-4xl sm:text-5xl md:text-7xl uppercase tracking-tighter text-[var(--foreground)] leading-[0.9] mb-6 md:mb-8 max-w-2xl">
               {proj.title}
             </h3>
-            <p className="font-mono text-sm md:text-base lg:text-lg opacity-70 leading-relaxed max-w-xl text-[var(--foreground)]">
-              {proj.desc}
+            <p className="font-mono text-sm md:text-base lg:text-lg opacity-70 leading-relaxed max-w-xl text-[var(--foreground)] mb-8">
+              {proj.problemStatement.substring(0, 150)}...
             </p>
+            <Link 
+               href={`/projects/${proj.slug}`}
+               className="font-mono text-xs uppercase tracking-widest border border-[var(--foreground)]/20 px-6 py-3 rounded-full w-max hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors mt-auto md:mt-0"
+            >
+               View Capabilities
+            </Link>
           </div>
 
           {/* Graphics Half */}

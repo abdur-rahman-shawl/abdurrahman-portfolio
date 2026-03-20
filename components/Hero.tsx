@@ -32,8 +32,8 @@ export default function Hero() {
       {/* Background image & gradient overlay */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1541888049137-9af962453503?q=80&w=2500&auto=format&fit=crop" 
-          alt="Brutalist Concrete" 
+          src="/hero_bg.png" 
+          alt="Brutalist Concrete Background" 
           className="w-full h-full object-cover opacity-50 grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--foreground)] via-[var(--foreground)]/80 to-transparent" />
