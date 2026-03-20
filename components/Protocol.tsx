@@ -46,31 +46,63 @@ export default function Protocol() {
       }
     });
 
-    // Decorative repeating sub-animations
-    gsap.to(".anim-rotate", {
-      rotation: 360,
-      duration: 30,
-      ease: "linear",
-      repeat: -1,
-      transformOrigin: "center"
-    });
-
-    gsap.to(".anim-scan", {
-      y: 190,
+    // Mapped Custom Bespoke GSAP Data Timelines
+    
+    gsap.to(".anim-vector-node", {
+      x: () => gsap.utils.random(-30, 30),
+      y: () => gsap.utils.random(-30, 30),
+      duration: 1.5,
       yoyo: true,
       repeat: -1,
-      duration: 2.5,
-      ease: "power2.inOut"
+      ease: "power2.inOut",
+      stagger: 0.05
     });
 
-    gsap.to(".anim-wave rect", {
-      scaleY: "random(0.1, 1)",
-      transformOrigin: "bottom",
-      stagger: 0.05,
-      duration: 0.5,
-      yoyo: true,
+    gsap.to(".anim-neural-pulse", {
+      scale: 2,
+      opacity: 0,
+      duration: 2,
       repeat: -1,
-      ease: "power1.inOut"
+      ease: "power2.out",
+      stagger: 0.5
+    });
+
+    gsap.to(".anim-decision-path", {
+      strokeDashoffset: 0,
+      duration: 1.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      stagger: 0.2
+    });
+    gsap.to(".anim-decision-node", {
+      opacity: 1,
+      duration: 0.2,
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 1.3,
+      stagger: 0.2
+    });
+
+    gsap.to(".anim-graph-trace", {
+      strokeDashoffset: -100,
+      duration: 3,
+      repeat: -1,
+      ease: "linear"
+    });
+
+    gsap.fromTo(".anim-data-block", 
+      { y: -30, opacity: 0 },
+      { y: 30, opacity: 1, duration: 1.2, repeat: -1, stagger: 0.15, ease: "none" }
+    );
+
+    gsap.to(".anim-push-ring", {
+      scale: 2.2,
+      opacity: 0,
+      duration: 1.5,
+      repeat: -1,
+      ease: "power2.out",
+      stagger: 0.4
     });
 
   }, { scope: container });
@@ -111,32 +143,65 @@ export default function Protocol() {
               VISUAL REPRESNTATION
             </div>
 
-            {proj.animType === "rotate" && (
-              <svg viewBox="0 0 100 100" className="anim-rotate w-48 h-48 md:w-80 md:h-80 opacity-60">
-                <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
-                <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" strokeWidth="1" transform="rotate(45 50 50)" />
-                <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" strokeWidth="1" />
+            {proj.animType === "vector-cluster" && (
+              <svg viewBox="0 0 100 100" className="w-48 h-48 md:w-80 md:h-80 opacity-60 overflow-visible">
+                {Array.from({length: 30}).map((_, i) => (
+                  <circle key={i} className="anim-vector-node" cx="50" cy="50" r="1.5" fill="currentColor" />
+                ))}
+                <circle cx="50" cy="50" r="12" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
+                <path d="M50 0 L50 100 M0 50 L100 50" stroke="var(--accent)" strokeWidth="0.2" opacity="0.5" />
               </svg>
             )}
 
-            {proj.animType === "scan" && (
-              <div className="relative w-48 h-48 md:w-80 md:h-80 border border-current opacity-60 flex items-center justify-center">
-                <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 opacity-20">
-                  {Array.from({length: 100}).map((_, i) => (
-                    <div key={i} className="border-[0.5px] border-current"></div>
-                  ))}
-                </div>
-                <div className="anim-scan w-full h-[3px] bg-[var(--accent)] absolute top-0 shadow-[0_0_20px_var(--accent)] z-10" />
-                <div className="font-mono text-[10px] opacity-70">DATA PIPELINE ACTIVE</div>
+            {proj.animType === "neural-pulse" && (
+              <div className="relative w-48 h-48 md:w-80 md:h-80 flex items-center justify-center opacity-80">
+                <div className="anim-neural-pulse absolute w-20 h-20 rounded-full border border-[var(--accent)]" />
+                <div className="anim-neural-pulse absolute w-20 h-20 rounded-full border border-[var(--accent)] -animation-delay-1000" />
+                <div className="w-6 h-6 rounded-full bg-current z-10" />
+                {Array.from({length: 6}).map((_, i) => (
+                  <div key={i} className="absolute w-2 h-2 rounded-full bg-[var(--foreground)] opacity-50" style={{ transform: `rotate(${i * 60}deg) translateY(-50px)` }} />
+                ))}
               </div>
             )}
 
-            {proj.animType === "wave" && (
-              <svg viewBox="0 0 100 50" className="anim-wave w-48 h-24 md:w-80 md:h-40 opacity-80 mt-10">
-                {Array.from({length: 40}).map((_, i) => (
-                  <rect key={i} x={i * 2.5} y="0" width="1.5" height="50" fill="currentColor" />
+            {proj.animType === "decision-tree" && (
+              <svg viewBox="0 0 100 100" className="w-48 h-48 md:w-80 md:h-80 opacity-80 overflow-visible">
+                <path className="anim-decision-path" d="M 50 20 L 20 60" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="60" strokeDashoffset="60" />
+                <path className="anim-decision-path" d="M 50 20 L 50 80" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="60" strokeDashoffset="60" />
+                <path className="anim-decision-path" d="M 50 20 L 80 60" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="60" strokeDashoffset="60" />
+                <rect x="42" y="12" width="16" height="16" fill="currentColor" />
+                <circle className="anim-decision-node opacity-0" cx="20" cy="60" r="4.5" fill="var(--accent)" />
+                <circle className="anim-decision-node opacity-0" cx="50" cy="80" r="4.5" fill="var(--accent)" />
+                <circle className="anim-decision-node opacity-0" cx="80" cy="60" r="4.5" fill="var(--accent)" />
+              </svg>
+            )}
+
+            {proj.animType === "graph-network" && (
+              <svg viewBox="0 0 100 100" className="w-48 h-48 md:w-80 md:h-80 opacity-60">
+                <path d="M10 20 L40 40 L80 15 L60 60 L90 85 L50 90 L20 70 Z" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
+                <path d="M40 40 L60 60 L20 70 L40 40" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
+                <path className="anim-graph-trace" d="M10 20 L40 40 L80 15 L60 60 L90 85 L50 90 L20 70 Z" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="20 100" />
+                <circle cx="40" cy="40" r="3" fill="currentColor" />
+                <circle cx="60" cy="60" r="3" fill="currentColor" />
+              </svg>
+            )}
+
+            {proj.animType === "data-funnel" && (
+              <svg viewBox="0 0 100 100" className="w-48 h-48 md:w-80 md:h-80 opacity-80 overflow-hidden">
+                <path d="M35 0 L35 100 M65 0 L65 100" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" opacity="0.5" />
+                {Array.from({length: 5}).map((_, i) => (
+                  <rect key={i} className="anim-data-block" x="40" y="0" width="20" height="6" fill="var(--accent)" />
                 ))}
               </svg>
+            )}
+
+            {proj.animType === "push-ripple" && (
+              <div className="relative w-24 h-48 md:w-36 md:h-72 border-2 border-current rounded-2xl opacity-80 flex items-center justify-center">
+                 <div className="anim-push-ring absolute w-full h-full rounded-2xl border-2 border-[var(--accent)]" />
+                 <div className="anim-push-ring absolute w-full h-full rounded-2xl border-2 border-[var(--accent)]" style={{animationDelay: "-0.7s"}} />
+                 <div className="w-8 h-1 bg-current rounded-full absolute top-4 opacity-50" />
+                 <div className="w-4 h-4 rounded-full bg-[var(--accent)] opacity-50 absolute bottom-6" />
+              </div>
             )}
           </div>
         </div>

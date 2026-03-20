@@ -13,7 +13,7 @@ export interface ProjectData {
   impactMetrics: { value: string; label: string }[];
   nextProjectSlug: string | null;
   prevProjectSlug: string | null;
-  animType: "rotate" | "scan" | "wave";
+  animType: "vector-cluster" | "neural-pulse" | "decision-tree" | "graph-network" | "data-funnel" | "push-ripple";
 }
 
 export const projectsData: ProjectData[] = [
@@ -36,7 +36,7 @@ export const projectsData: ProjectData[] = [
     ],
     prevProjectSlug: null,
     nextProjectSlug: "lucy-ai-assistant",
-    animType: "rotate"
+    animType: "vector-cluster"
   },
   {
     slug: "lucy-ai-assistant",
@@ -57,7 +57,7 @@ export const projectsData: ProjectData[] = [
     ],
     prevProjectSlug: "semantic-job-resolver",
     nextProjectSlug: "autonomous-agents",
-    animType: "wave"
+    animType: "neural-pulse"
   },
   {
     slug: "autonomous-agents",
@@ -78,7 +78,7 @@ export const projectsData: ProjectData[] = [
     ],
     prevProjectSlug: "lucy-ai-assistant",
     nextProjectSlug: "ai-seo-architect",
-    animType: "scan"
+    animType: "decision-tree"
   },
   {
     slug: "ai-seo-architect",
@@ -99,7 +99,7 @@ export const projectsData: ProjectData[] = [
     ],
     prevProjectSlug: "autonomous-agents",
     nextProjectSlug: "global-resume-parser",
-    animType: "rotate"
+    animType: "graph-network"
   },
   {
     slug: "global-resume-parser",
@@ -120,7 +120,7 @@ export const projectsData: ProjectData[] = [
     ],
     prevProjectSlug: "ai-seo-architect",
     nextProjectSlug: "whatjobs-native-pwa",
-    animType: "scan"
+    animType: "data-funnel"
   },
   {
     slug: "whatjobs-native-pwa",
@@ -141,7 +141,7 @@ export const projectsData: ProjectData[] = [
     ],
     prevProjectSlug: "global-resume-parser",
     nextProjectSlug: null,
-    animType: "wave"
+    animType: "push-ripple"
   }
 ];
 
