@@ -4,6 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +13,18 @@ if (typeof window !== "undefined") {
 
 export default function Nav() {
   const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.querySelector(target);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  };
 
   useGSAP(() => {
     ScrollTrigger.create({
@@ -47,28 +61,25 @@ export default function Nav() {
       className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-4 rounded-[3rem] w-[95%] max-w-5xl transition-all"
       style={{ color: "#E8E4DD" }}
     >
-      <a 
-        href="#" 
-        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+      <Link 
+        href="/" 
+        onClick={(e) => handleScroll(e, "body")}
         className="font-sans font-bold text-xl tracking-tight uppercase cursor-pointer"
       >
         Abdur.
-      </a>
+      </Link>
       <div className="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest">
-        <a href="#features" className="lift-hover">Features</a>
-        <a href="#philosophy" className="lift-hover">Philosophy</a>
-        <a href="#protocol" className="lift-hover">Protocol</a>
+        <Link href="/#features" onClick={(e) => handleScroll(e, "#features")} className="lift-hover">Features</Link>
+        <Link href="/#philosophy" onClick={(e) => handleScroll(e, "#philosophy")} className="lift-hover">Philosophy</Link>
+        <Link href="/#protocol" onClick={(e) => handleScroll(e, "#protocol")} className="lift-hover">Protocol</Link>
       </div>
-      <a 
-        href="#contact"
-        onClick={(e) => { 
-          e.preventDefault(); 
-          document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); 
-        }}
+      <Link 
+        href="/#contact"
+        onClick={(e) => handleScroll(e, "#contact")}
         className="magnetic-btn bg-[var(--accent)] text-[var(--primary)] px-8 py-3 rounded-full font-sans font-bold text-sm tracking-wide hover:bg-[var(--foreground)] transition-colors text-center"
       >
         Deploy
-      </a>
+      </Link>
     </nav>
   );
 }

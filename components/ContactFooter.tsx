@@ -1,10 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function ContactFooter() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const pathname = usePathname();
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const el = document.querySelector(target);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,9 +123,9 @@ export default function ContactFooter() {
 
            <div className="flex flex-col gap-4">
               <div className="text-[var(--accent)] font-bold mb-2 tracking-widest uppercase text-xs">Directory</div>
-              <a href="#features" className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Features</a>
-              <a href="#philosophy" className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Philosophy</a>
-              <a href="#protocol" className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Projects</a>
+              <Link href="/#features" onClick={(e) => handleScroll(e, "#features")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Features</Link>
+              <Link href="/#philosophy" onClick={(e) => handleScroll(e, "#philosophy")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Philosophy</Link>
+              <Link href="/#protocol" onClick={(e) => handleScroll(e, "#protocol")} className="hover:text-[var(--accent)] transition-colors duration-300 w-max text-xs opacity-80 hover:opacity-100">Projects</Link>
            </div>
 
            <div className="flex flex-col gap-4">

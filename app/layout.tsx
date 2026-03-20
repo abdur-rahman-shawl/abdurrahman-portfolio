@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Serif_Display, Space_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroller from "../components/SmoothScroller";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -43,7 +44,9 @@ export default function RootLayout({
           <rect width="100%" height="100%" filter="url(#noiseFilter)" />
         </svg>
         
-        {children}
+        <SmoothScroller>
+          {children}
+        </SmoothScroller>
       </body>
     </html>
   );
