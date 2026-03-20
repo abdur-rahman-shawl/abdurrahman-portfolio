@@ -1,6 +1,7 @@
 import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
+import Specs from "../components/Specs";
 import Philosophy from "../components/Philosophy";
 import Protocol from "../components/Protocol";
 import ContactFooter from "../components/ContactFooter";
@@ -11,6 +12,7 @@ export default function Home() {
        <Nav />
        <Hero />
        <Features />
+       <Specs />
        <Philosophy />
        <Protocol />
        <ContactFooter />

@@ -1,9 +1,42 @@
 "use client";
 
+import { useState } from "react";
+
 export default function ContactFooter() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    setStatus("loading");
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+    
+    setTimeout(() => {
+      setStatus("idle");
+    }, 5000);
+  };
+
   return (
     <>
-      <section className="relative w-full bg-[var(--background)] py-32 md:py-48 px-6 border-t border-[var(--foreground)]/10 z-10">
+      <section id="contact" className="relative w-full bg-[var(--background)] py-32 md:py-48 px-6 border-t border-[var(--foreground)]/10 z-10">
         <div className="max-w-4xl mx-auto flex flex-col gap-12 md:gap-16">
           <div className="flex flex-col gap-4">
              <div className="font-mono text-xs tracking-widest text-[var(--accent)] uppercase font-bold">/// Initialization</div>
@@ -12,27 +45,49 @@ export default function ContactFooter() {
              </h2>
           </div>
 
-          <form className="flex flex-col gap-6 md:gap-8 w-full mt-4 md:mt-8" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-6 md:gap-8 w-full mt-4 md:mt-8" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full">
               <input 
                 type="text" 
                 placeholder="Name" 
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                required
                 className="w-full bg-transparent border-b border-[var(--foreground)]/20 py-4 font-mono text-base md:text-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:opacity-40 rounded-none"
               />
               <input 
                 type="email" 
-                placeholder="Email Address" 
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required
                 className="w-full bg-transparent border-b border-[var(--foreground)]/20 py-4 font-mono text-base md:text-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors placeholder:opacity-40 rounded-none"
               />
             </div>
             <textarea 
               rows={4} 
-              placeholder="System specifications / Inquiries" 
+              placeholder="System specifications / Inquiries"
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              required
               className="w-full bg-transparent border-b border-[var(--foreground)]/20 py-4 font-mono text-base md:text-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] transition-colors resize-none placeholder:opacity-40 rounded-none"
             />
-            <button className="magnetic-btn self-start bg-[var(--foreground)] text-[var(--background)] px-8 md:px-10 py-4 md:py-5 rounded-full font-sans font-bold uppercase tracking-tight hover:bg-[var(--accent)] transition-colors mt-6 text-xs md:text-sm">
-              Execute Transmission
-            </button>
+            <div className="flex items-center gap-6 mt-6">
+              <button 
+                type="submit"
+                disabled={status === "loading" || status === "success"}
+                className="magnetic-btn bg-[var(--foreground)] text-[var(--background)] px-8 md:px-10 py-4 md:py-5 rounded-full font-sans font-bold uppercase tracking-tight hover:bg-[var(--accent)] transition-colors text-xs md:text-sm disabled:opacity-50 disabled:pointer-events-none"
+              >
+                {status === "loading" ? "Transmitting..." : status === "success" ? "Received" : "Execute Transmission"}
+              </button>
+              
+              {status === "success" && (
+                <span className="font-mono text-xs text-green-500 uppercase tracking-widest animate-pulse">Transmission Successful</span>
+              )}
+              {status === "error" && (
+                <span className="font-mono text-xs text-[var(--accent)] uppercase tracking-widest">Transmission Failed</span>
+              )}
+            </div>
           </form>
         </div>
       </section>

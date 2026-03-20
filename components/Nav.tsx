@@ -47,15 +47,28 @@ export default function Nav() {
       className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-4 rounded-[3rem] w-[95%] max-w-5xl transition-all"
       style={{ color: "#E8E4DD" }}
     >
-      <div className="font-sans font-bold text-xl tracking-tight uppercase">Abdur.</div>
+      <a 
+        href="#" 
+        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        className="font-sans font-bold text-xl tracking-tight uppercase cursor-pointer"
+      >
+        Abdur.
+      </a>
       <div className="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest">
         <a href="#features" className="lift-hover">Features</a>
         <a href="#philosophy" className="lift-hover">Philosophy</a>
         <a href="#protocol" className="lift-hover">Protocol</a>
       </div>
-      <button className="magnetic-btn bg-[var(--accent)] text-[var(--primary)] px-8 py-3 rounded-full font-sans font-bold text-sm tracking-wide hover:bg-[var(--foreground)] transition-colors">
+      <a 
+        href="#contact"
+        onClick={(e) => { 
+          e.preventDefault(); 
+          document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); 
+        }}
+        className="magnetic-btn bg-[var(--accent)] text-[var(--primary)] px-8 py-3 rounded-full font-sans font-bold text-sm tracking-wide hover:bg-[var(--foreground)] transition-colors text-center"
+      >
         Deploy
-      </button>
+      </a>
     </nav>
   );
 }
