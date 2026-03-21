@@ -111,7 +111,7 @@ export default function ContactFooter() {
            
            <div className="col-span-1 sm:col-span-2 flex flex-col justify-between">
               <div>
-                <div className="font-sans font-bold text-2xl md:text-3xl tracking-tight uppercase mb-4 text-[var(--background)]">Abdur_</div>
+                <div className="font-sans font-bold text-2xl md:text-3xl lg:text-4xl tracking-tight uppercase mb-4 text-[var(--background)]">Abdur Rahman_</div>
                 <p className="opacity-60 max-w-sm leading-relaxed text-xs md:text-sm">Translating frontier AI into sophisticated software systems.</p>
               </div>
               <div className="mt-12 flex items-center gap-3 border border-[var(--primary)]/20 px-5 py-3 rounded-full w-max bg-[var(--foreground)] relative overflow-hidden group">

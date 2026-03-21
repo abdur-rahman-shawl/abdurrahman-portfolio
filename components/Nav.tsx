@@ -66,7 +66,7 @@ export default function Nav() {
         onClick={(e) => handleScroll(e, "body")}
         className="font-sans font-bold text-xl tracking-tight uppercase cursor-pointer"
       >
-        Abdur.
+        AR.
       </Link>
       <div className="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest">
         <Link href="/#features" onClick={(e) => handleScroll(e, "#features")} className="lift-hover">Features</Link>

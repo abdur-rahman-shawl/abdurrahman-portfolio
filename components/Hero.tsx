@@ -39,11 +39,14 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--foreground)] via-[var(--foreground)]/80 to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 md:pb-32 flex flex-col items-start gap-6">
-        <h1 className="hero-text-part font-serif italic text-5xl sm:text-6xl md:text-[9rem] lg:text-[12rem] leading-[0.9] tracking-tight text-[var(--background)]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 md:pb-20 lg:pb-16 flex flex-col items-start gap-4 md:gap-6">
+        <div className="hero-text-part font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.3em] md:tracking-[0.5em] text-[var(--background)] uppercase font-bold opacity-80">
+          Abdur Rahman //
+        </div>
+        <h1 className="hero-text-part font-serif italic text-5xl sm:text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.9] tracking-tight text-[var(--background)] -mt-2 md:-mt-6">
           Software Engineer  
           <br />
-          <span className="font-sans not-italic text-5xl sm:text-6xl md:text-[7rem] lg:text-[10rem] text-[var(--accent)] tracking-tighter uppercase font-bold block mt-2 md:mt-0">
+          <span className="font-sans not-italic text-5xl sm:text-6xl md:text-[7rem] lg:text-[9rem] text-[var(--accent)] tracking-tighter uppercase font-bold block mt-2 md:mt-0">
             GenAI
           </span>
         </h1>
