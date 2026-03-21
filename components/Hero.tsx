@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowDownRight } from "lucide-react";
+import TopographicVFX from "./TopographicVFX";
 
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
@@ -31,12 +32,8 @@ export default function Hero() {
     >
       {/* Background image & gradient overlay */}
       <div className="absolute inset-0">
-        <img 
-          src="https://images.pexels.com/photos/4328661/pexels-photo-4328661.jpeg" 
-          alt="Brutalist Concrete Background" 
-          className="w-full h-full object-cover opacity-50 grayscale"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--foreground)] via-[var(--foreground)]/80 to-transparent" />
+        <TopographicVFX />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--foreground)] via-[var(--foreground)]/60 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-12 md:pb-20 lg:pb-16 flex flex-col items-start gap-4 md:gap-6">
