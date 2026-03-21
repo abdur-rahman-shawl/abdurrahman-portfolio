@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowDownRight } from "lucide-react";
-import TopographicVFX from "./TopographicVFX";
+import SemanticMatrix from "./SemanticMatrix";
 
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ export default function Hero() {
     >
       {/* Background image & gradient overlay */}
       <div className="absolute inset-0">
-        <TopographicVFX />
+        <SemanticMatrix />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--foreground)] via-[var(--foreground)]/60 to-transparent pointer-events-none" />
       </div>
 
