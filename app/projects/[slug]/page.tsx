@@ -5,6 +5,7 @@ import ProjectNarrative from "../../../components/ProjectNarrative";
 import ProjectImpact from "../../../components/ProjectImpact";
 import ProjectNav from "../../../components/ProjectNav";
 import ContactFooter from "../../../components/ContactFooter";
+import ScrollToTop from "../../../components/ScrollToTop";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -39,6 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="w-full flex-col flex bg-[var(--background)]">
+      <ScrollToTop />
       <ProjectHero project={project} />
       <ProjectNarrative project={project} />
       <ProjectImpact project={project} />
